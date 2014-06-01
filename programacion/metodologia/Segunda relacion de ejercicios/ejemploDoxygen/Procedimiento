@@ -1,0 +1,22 @@
+Compilar con: doxygen -g "confDoxygen".conf
+
+Para ver el archivo html, abrir el llamado index.html
+
+Abrir: "confDoxygen".conf
+{
+	OUTPUT_LANGUAGE        = Spanish
+
+	SOURCE_BROWSER         = YES
+
+	INPUT                  = "funciones.c" "main.c" //Ficheros que queremos incluir
+
+	GENERATE_LATEX         = NO
+
+	PROJECT_NAME           = "Proyecto"
+
+	FILTER_SOURCE_FILES    = YES para adjuntar el código fuente
+}
+
+Ejecutar con: doxygen "confDoxygen".conf para generar los archivos de doxygen.
+
+Abrir de nuevo para ver el archivo html actualizado llamado index.html

@@ -1,0 +1,7 @@
+Procedimiento en terminal:
+
+Se compila con make 
+o make -f "nombre del makefile"
+
+Para borrar los archivos generados se hace con make clean
+o make -f "nombre del makefile" clean

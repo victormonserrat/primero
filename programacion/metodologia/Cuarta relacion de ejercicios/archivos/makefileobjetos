@@ -1,0 +1,22 @@
+#Ejemplo de makefile para calculadora polaca
+
+CC = gcc
+OBJETOS = main.o stack.o getop.o getch.o
+
+calucladora: $(OBJETOS)
+	gcc -o calculadora $(OBJETOS)
+	
+main.o: main.c calc.h
+	gcc -c main.c
+	
+stack.o: stack.c calc.h
+	gcc -c stack.c
+	
+getop.o: getop.c
+	gcc -c getop.c
+	
+getch.o: getch.c
+	gcc -c getch.c
+	
+clean:
+	rm *.o calculadora

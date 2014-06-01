@@ -1,0 +1,93 @@
+(ExpressProject "pract4"
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File "C:\prg16\ORCADWIN\EXPRESS\LIBRARY\TTL.OLB"
+        (Type "Schematic Library")))
+    (File "\\cifs\home\p4\SEMISUMA.DSN"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (NoModify))
+  (Folder "Outputs"
+    (File "\\cifs\home\p4\semisuma.edn"
+      (Type "Report")))
+  (Folder "Referenced Projects")
+  (Folder "Simulation Resources"
+    (Folder "In Design"
+      (File "C:\prg16\ORCADWIN\EXPRESS\LIBRARY\LS.VHD"
+        (Type "VHDL SimModel"))
+      (File "C:\prg16\ORCADWIN\EXPRESS\LIBRARY\ORCOMP.VHD"
+        (Type "VHDL SimModel"))
+      (File ".\indesign\semisuma.vhd"
+        (Type "VHDL Netlist"))
+      (File "\\cifs\home\p4\InDesign\PRACT4"
+        (Type "Simulate Stimulus"))
+      (Document 5 "\\cifs\home\p4\InDesign\PRACT4"
+        (Window "44 0 1 -1 -1 -1 -1 44 934 44 352"))
+      (Document 0
+        (Signal "suma4bit" "c_in" 4 0)
+        (Signal "suma4bit" "a" 5 0)
+        (Signal "suma4bit" "m" 4 0)
+        (Signal "suma4bit" "b" 5 0)
+        (Signal "suma4bit" "s" 5 0)
+        (Signal "suma4bit" "c_out" 4 0)
+        (Window "44 0 1 -1 -1 -1 -1 66 956 66 374"))
+      (Document 0
+        (Signal "suma4bit" "c_in" 4 0)
+        (Signal "suma4bit" "a" 1 0)
+        (Signal "suma4bit" "m" 4 0)
+        (Signal "suma4bit" "b" 1 0)
+        (Signal "suma4bit" "s" 1 0)
+        (Signal "suma4bit" "c_out" 4 0)
+        (Window "44 0 1 -1 -1 -1 -1 71 961 57 365"))
+      (Options
+        (AssertBeep 1)
+        (AssertLog 1)
+        (AssertMsg 1)
+        (AssertStop 1)
+        (BreakBeep 1)
+        (BreakLog 1)
+        (BreakMessage 1)
+        (BreakStop 1)
+        (FileOpen "\\cifs\home\Fundamentos y Estructura de Computadores\p1")
+        (InstructionStep 1)
+        (InteractiveUpdate 0)
+        (ITCEnabled 0)
+        (ListDisplayTop 1)
+        (LogTimeStamp 1)
+        (MiscOptLastPage 0)
+        (PlaAddToProject 1)
+        (PlaClockToOutput 0)
+        (PlaCombinational 0)
+        (PlaResolution -1)
+        (PlaSetupTime 0)
+        (PlaSpeedGrade 15)
+        (PlaTriStateEnable 0)
+        (Radix 0)
+        (RunResolution 2)
+        (RunTime 10000)
+        (SDFTiming 1)
+        (TimeCursorSnap 0)
+        (TimingBeep 0)
+        (TimingLog 1)
+        (TimingMsg 0)
+        (TimingStop 0)
+        (VHDLStandard 1)
+        (WaveDisplayTop 1)))
+    (Folder "Compiled"
+      (File "C:\prg16\ORCADWIN\EXPRESS\LIBRARY\LS.VHD"
+        (Type "VHDL SimModel"))
+      (File "C:\prg16\ORCADWIN\EXPRESS\LIBRARY\ORCOMP.VHD"
+        (Type "VHDL SimModel"))
+      (File ".\indesign\semisuma.vhd"
+        (Type "VHDL Netlist")))
+    (Folder "Timed"
+      (File "C:\prg16\ORCADWIN\EXPRESS\LIBRARY\LS.VHD"
+        (Type "VHDL SimModel"))
+      (File "C:\prg16\ORCADWIN\EXPRESS\LIBRARY\ORCOMP.VHD"
+        (Type "VHDL SimModel"))
+      (File ".\indesign\semisuma.vhd"
+        (Type "VHDL Netlist")))
+    (DefaultFolder "In Design")
+    (LastModified "Wed Apr 02 20:22:31 2014")))

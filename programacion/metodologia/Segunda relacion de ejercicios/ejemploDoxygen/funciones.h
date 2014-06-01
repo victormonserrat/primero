@@ -1,0 +1,1 @@
+int calcularDiferencias (int, int);

@@ -1,0 +1,334 @@
+(edif SUMA4BIT
+ (edifVersion 2 0 0)
+ (edifLevel 0)
+ (keywordMap (keywordLevel 0))
+ (status
+  (written
+   (timeStamp 2014 04 02 17 26 23)
+   (program "EXPRESS.EXE" (Version "7.01.210"))
+   (comment "Original data from OrCAD/CAPTURE schematic"))
+  (comment "")
+  (comment "Wednesday, April 02, 2014")
+  (comment "\\CIFS\HOME\P4\SEMISUMA.DSN")
+  (comment "")
+  (comment "")
+  (comment "")
+  (comment "")
+  (comment "")
+  (comment ""))
+ (external OrCAD_LIB
+  (edifLevel 0)
+  (technology
+   (numberDefinition
+    (scale 1 1 (unit distance))))
+  (cell &74LS86
+   (cellType generic)
+   (comment "From OrCAD library TTL.OLB")
+   (view NetlistView
+    (viewType netlist)
+    (interface
+     (port &1 (direction INPUT)(designator "1"))
+     (port &2 (direction INPUT)(designator "2"))
+     (port &3 (direction OUTPUT)(designator "3"))
+     (port &14 (direction INPUT)(designator "14"))
+     (port &7 (direction INPUT)(designator "7"))
+     (port &4 (direction INPUT)(designator "4"))
+     (port &5 (direction INPUT)(designator "5"))
+     (port &6 (direction OUTPUT)(designator "6"))
+     (port &9 (direction INPUT)(designator "9"))
+     (port &10 (direction INPUT)(designator "10"))
+     (port &8 (direction OUTPUT)(designator "8"))
+     (port &12 (direction INPUT)(designator "12"))
+     (port &13 (direction INPUT)(designator "13"))
+     (port &11 (direction OUTPUT)(designator "11")))))
+  (cell &74LS32
+   (cellType generic)
+   (comment "From OrCAD library TTL.OLB")
+   (view NetlistView
+    (viewType netlist)
+    (interface
+     (port &1 (direction INPUT)(designator "1"))
+     (port &2 (direction INPUT)(designator "2"))
+     (port &3 (direction OUTPUT)(designator "3"))
+     (port &14 (direction INPUT)(designator "14"))
+     (port &7 (direction INPUT)(designator "7"))
+     (port &4 (direction INPUT)(designator "4"))
+     (port &5 (direction INPUT)(designator "5"))
+     (port &6 (direction OUTPUT)(designator "6"))
+     (port &9 (direction INPUT)(designator "9"))
+     (port &10 (direction INPUT)(designator "10"))
+     (port &8 (direction OUTPUT)(designator "8"))
+     (port &12 (direction INPUT)(designator "12"))
+     (port &13 (direction INPUT)(designator "13"))
+     (port &11 (direction OUTPUT)(designator "11")))))
+  (cell &74LS08
+   (cellType generic)
+   (comment "From OrCAD library TTL.OLB")
+   (view NetlistView
+    (viewType netlist)
+    (interface
+     (port &1 (direction INPUT)(designator "1"))
+     (port &2 (direction INPUT)(designator "2"))
+     (port &3 (direction OUTPUT)(designator "3"))
+     (port &14 (direction INPUT)(designator "14"))
+     (port &7 (direction INPUT)(designator "7"))
+     (port &4 (direction INPUT)(designator "4"))
+     (port &5 (direction INPUT)(designator "5"))
+     (port &6 (direction OUTPUT)(designator "6"))
+     (port &9 (direction INPUT)(designator "9"))
+     (port &10 (direction INPUT)(designator "10"))
+     (port &8 (direction OUTPUT)(designator "8"))
+     (port &12 (direction INPUT)(designator "12"))
+     (port &13 (direction INPUT)(designator "13"))
+     (port &11 (direction OUTPUT)(designator "11"))))))
+ (library MAIN_LIB
+  (edifLevel 0)
+  (technology
+   (numberDefinition
+    (scale 1 1 (unit distance))))
+  (cell SEMISUMA
+   (cellType generic)
+   (view NetlistView
+    (viewType netlist)
+    (interface
+     (port SU0 (direction INPUT))
+     (port SU1 (direction INPUT))
+     (port SU (direction OUTPUT))
+     (port C (direction OUTPUT)))
+    (contents
+     (instance U1
+      (viewRef NetlistView
+       (cellRef &74LS86
+        (libraryRef OrCAD_LIB))) (designator U1))
+     (instance U2
+      (viewRef NetlistView
+       (cellRef &74LS08
+        (libraryRef OrCAD_LIB))) (designator U2))
+     (net SU1
+      (joined
+       (portRef &1 (instanceRef U2))
+       (portRef &2 (instanceRef U1))
+       (portRef SU1)))
+     (net SU0
+      (joined
+       (portRef &2 (instanceRef U2))
+       (portRef &1 (instanceRef U1))
+       (portRef SU0)))
+     (net SU
+      (joined
+       (portRef &3 (instanceRef U1))
+       (portRef SU)))
+     (net C
+      (joined
+       (portRef &3 (instanceRef U2))
+       (portRef C)))
+     (net GND
+      (joined
+       (portRef &7 (instanceRef U1))
+       (portRef &7 (instanceRef U2))))
+     (net VCC
+      (joined
+       (portRef &14 (instanceRef U1))
+       (portRef &14 (instanceRef U2)))))))
+  (cell SUMACOM
+   (cellType generic)
+   (view NetlistView
+    (viewType netlist)
+    (interface
+     (port SUM1 (direction INPUT))
+     (port SUM0 (direction INPUT))
+     (port SUMA (direction OUTPUT))
+     (port C0 (direction OUTPUT))
+     (port CI (direction INPUT)))
+    (contents
+     (instance U4
+      (viewRef NetlistView
+       (cellRef &74LS32
+        (libraryRef OrCAD_LIB))) (designator U4))
+     (instance SS0
+      (viewRef NetlistView
+       (cellRef SEMISUMA)))
+     (instance SS1
+      (viewRef NetlistView
+       (cellRef SEMISUMA)))
+     (net CI
+      (joined
+       (portRef SU1 (instanceRef SS1))
+       (portRef CI)))
+     (net SUMA
+      (joined
+       (portRef SU (instanceRef SS1))
+       (portRef SUMA)))
+     (net C0
+      (joined
+       (portRef &3 (instanceRef U4))
+       (portRef C0)))
+     (net N00055
+      (joined
+       (portRef &2 (instanceRef U4))
+       (portRef C (instanceRef SS0))))
+     (net N00046
+      (joined
+       (portRef &1 (instanceRef U4))
+       (portRef C (instanceRef SS1))))
+     (net VCC
+      (joined
+       (portRef &14 (instanceRef U4))))
+     (net GND
+      (joined
+       (portRef &7 (instanceRef U4))))
+     (net SUM0
+      (joined
+       (portRef SU0 (instanceRef SS0))
+       (portRef SUM0)))
+     (net SUM1
+      (joined
+       (portRef SU1 (instanceRef SS0))
+       (portRef SUM1)))
+     (net N00007
+      (joined
+       (portRef SU0 (instanceRef SS1))
+       (portRef SU (instanceRef SS0)))))))
+  (cell SUMA4BIT
+   (cellType generic)
+   (view NetlistView
+    (viewType netlist)
+    (interface
+     (port B1 (direction INPUT))
+     (port S1 (direction OUTPUT))
+     (port A0 (direction INPUT))
+     (port B2 (direction INPUT))
+     (port S2 (direction OUTPUT))
+     (port A1 (direction INPUT))
+     (port B3 (direction INPUT))
+     (port S3 (direction OUTPUT))
+     (port A2 (direction INPUT))
+     (port A3 (direction INPUT))
+     (port M (direction INPUT))
+     (port C_IN (direction INPUT))
+     (port C_OUT (direction OUTPUT))
+     (port B0 (direction INPUT))
+     (port S0 (direction OUTPUT)))
+    (contents
+     (instance U1
+      (viewRef NetlistView
+       (cellRef &74LS86
+        (libraryRef OrCAD_LIB))) (designator U1))
+     (instance U3
+      (viewRef NetlistView
+       (cellRef &74LS86
+        (libraryRef OrCAD_LIB))) (designator U3))
+     (instance SC0
+      (viewRef NetlistView
+       (cellRef SUMACOM)))
+     (instance SC1
+      (viewRef NetlistView
+       (cellRef SUMACOM)))
+     (instance SC2
+      (viewRef NetlistView
+       (cellRef SUMACOM)))
+     (instance SC3
+      (viewRef NetlistView
+       (cellRef SUMACOM)))
+     (net A0
+      (joined
+       (portRef SUM1 (instanceRef SC0))
+       (portRef A0)))
+     (net N000091
+      (joined
+       (portRef SUM0 (instanceRef SC3))
+       (portRef &3 (instanceRef U3))))
+     (net B1
+      (joined
+       (portRef &9 (instanceRef U1))
+       (portRef B1)))
+     (net B0
+      (joined
+       (portRef &4 (instanceRef U1))
+       (portRef B0)))
+     (net B2
+      (joined
+       (portRef &12 (instanceRef U1))
+       (portRef B2)))
+     (net M
+      (joined
+       (portRef &10 (instanceRef U1))
+       (portRef &13 (instanceRef U1))
+       (portRef &2 (instanceRef U3))
+       (portRef &5 (instanceRef U1))
+       (portRef M)))
+     (net S3
+      (joined
+       (portRef SUMA (instanceRef SC3))
+       (portRef S3)))
+     (net S2
+      (joined
+       (portRef SUMA (instanceRef SC2))
+       (portRef S2)))
+     (net S1
+      (joined
+       (portRef SUMA (instanceRef SC1))
+       (portRef S1)))
+     (net S0
+      (joined
+       (portRef SUMA (instanceRef SC0))
+       (portRef S0)))
+     (net N00716
+      (joined
+       (portRef CI (instanceRef SC3))
+       (portRef C0 (instanceRef SC2))))
+     (net N00701
+      (joined
+       (portRef CI (instanceRef SC2))
+       (portRef C0 (instanceRef SC1))))
+     (net N00686
+      (joined
+       (portRef CI (instanceRef SC1))
+       (portRef C0 (instanceRef SC0))))
+     (net C_IN
+      (joined
+       (portRef CI (instanceRef SC0))
+       (portRef C_IN)))
+     (net C_OUT
+      (joined
+       (portRef C0 (instanceRef SC3))
+       (portRef C_OUT)))
+     (net A3
+      (joined
+       (portRef SUM1 (instanceRef SC3))
+       (portRef A3)))
+     (net A2
+      (joined
+       (portRef SUM1 (instanceRef SC2))
+       (portRef A2)))
+     (net A1
+      (joined
+       (portRef SUM1 (instanceRef SC1))
+       (portRef A1)))
+     (net N000071
+      (joined
+       (portRef SUM0 (instanceRef SC2))
+       (portRef &11 (instanceRef U1))))
+     (net GND
+      (joined
+       (portRef &7 (instanceRef U1))
+       (portRef &7 (instanceRef U3))))
+     (net VCC
+      (joined
+       (portRef &14 (instanceRef U1))
+       (portRef &14 (instanceRef U3))))
+     (net N000051
+      (joined
+       (portRef SUM0 (instanceRef SC1))
+       (portRef &8 (instanceRef U1))))
+     (net N000031
+      (joined
+       (portRef &6 (instanceRef U1))
+       (portRef SUM0 (instanceRef SC0))))
+     (net B3
+      (joined
+       (portRef &1 (instanceRef U3))
+       (portRef B3)))))))
+ (design SUMA4BIT
+  (cellRef SUMA4BIT
+   (libraryRef MAIN_LIB))))
